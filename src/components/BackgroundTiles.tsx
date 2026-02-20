@@ -1,91 +1,90 @@
 import React, { useEffect, useRef } from 'react';
 
-interface Tile {
+interface Particle {
     x: number;
     y: number;
+    size: number;
     vx: number;
     vy: number;
-    char: string;
-    rotation: number;
-    rotationSpeed: number;
-    color: string;
+    alpha: number;
 }
-
-const CHARS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '💡', '🚀', '💻', '🎨', '⚡'];
 
 const BackgroundTiles: React.FC<{ isFalling: boolean }> = ({ isFalling }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const tilesRef = useRef<Tile[]>([]);
-    const requestRef = useRef<number>(0);
+    const particlesRef = useRef<Particle[]>([]);
+    const animationFrameRef = useRef<number>(0);
 
-    const initTiles = (width: number, height: number) => {
-        const tiles: Tile[] = [];
-        const count = width < 768 ? 15 : 30;
-
+    const initParticles = (width: number, height: number) => {
+        const count = Math.floor((width * height) / 15000); // Particle density
+        particlesRef.current = [];
         for (let i = 0; i < count; i++) {
-            tiles.push({
+            particlesRef.current.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 2,
-                vy: (Math.random() - 0.5) * 2,
-                char: CHARS[Math.floor(Math.random() * CHARS.length)],
-                rotation: Math.random() * Math.PI * 2,
-                rotationSpeed: (Math.random() - 0.5) * 0.05,
-                color: Math.random() > 0.8 ? '#00FF8B' : '#333',
+                size: Math.random() * 2 + 1,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                alpha: Math.random() * 0.5 + 0.2,
             });
         }
-        tilesRef.current = tiles;
     };
 
-    const update = () => {
+    const animate = () => {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
+        // Clear canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        tilesRef.current.forEach(tile => {
-            // Physics
+        // Update and draw particles
+        particlesRef.current.forEach((p, i) => {
+            // Update position based on falling state
             if (isFalling) {
-                tile.vy += 0.5; // Gravity
-                tile.vx *= 0.99; // Air resistance
+                p.vy += 0.05; // Gravity
+                p.y += p.vy;
             } else {
-                // Floating
-                if (tile.x <= 0 || tile.x >= canvas.width) tile.vx *= -1;
-                if (tile.y <= 0 || tile.y >= canvas.height) tile.vy *= -1;
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Bounce off edges
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
             }
 
-            tile.x += tile.vx;
-            tile.y += tile.vy;
-            tile.rotation += tile.rotationSpeed;
-
-            // Reset if out of bounds (falling mode)
-            if (isFalling && tile.y > canvas.height + 50) {
-                tile.y = -50;
-                tile.vy = 0;
-                tile.x = Math.random() * canvas.width;
+            // Reset particles that fall off screen
+            if (p.y > canvas.height + 10) {
+                p.y = -10;
+                p.vy = (Math.random() * 2) + 1; // Random fall speed
+                p.x = Math.random() * canvas.width;
             }
 
-            // Draw
-            ctx.save();
-            ctx.translate(tile.x, tile.y);
-            ctx.rotate(tile.rotation);
-            ctx.fillStyle = tile.color === '#00FF8B' ? 'rgba(0, 255, 139, 0.8)' : 'rgba(255, 255, 255, 0.1)';
-            ctx.font = '24px Space Grotesk';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(tile.char, 0, 0);
+            // Draw particle
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0, 255, 139, ${p.alpha})`; // Neon green
+            ctx.fill();
 
-            // Tile border
-            ctx.strokeStyle = tile.color === '#00FF8B' ? 'rgba(0, 255, 139, 0.3)' : 'rgba(255, 255, 255, 0.05)';
-            ctx.lineWidth = 1;
-            ctx.strokeRect(-15, -15, 30, 30);
+            // Connect nearby particles
+            for (let j = i + 1; j < particlesRef.current.length; j++) {
+                const p2 = particlesRef.current[j];
+                const dx = p.x - p2.x;
+                const dy = p.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
 
-            ctx.restore();
+                if (dist < 100) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(0, 255, 139, ${0.1 * (1 - dist / 100)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
         });
 
-        requestRef.current = requestAnimationFrame(update);
+        animationFrameRef.current = requestAnimationFrame(animate);
     };
 
     useEffect(() => {
@@ -95,16 +94,18 @@ const BackgroundTiles: React.FC<{ isFalling: boolean }> = ({ isFalling }) => {
         const handleResize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            initTiles(canvas.width, canvas.height);
+            initParticles(canvas.width, canvas.height);
         };
 
         handleResize();
         window.addEventListener('resize', handleResize);
-        requestRef.current = requestAnimationFrame(update);
+
+        // Start animation
+        animate();
 
         return () => {
             window.removeEventListener('resize', handleResize);
-            if (requestRef.current) cancelAnimationFrame(requestRef.current);
+            if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
         };
     }, [isFalling]);
 
