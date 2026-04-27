@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, Lightbulb, Share2, Mail, Calculator, ChevronDown, Sparkles } from 'lucide-react';
+import { ChevronRight, Lightbulb, Share2, Mail, Calculator, ChevronDown, Sparkles, Users } from 'lucide-react';
 import { soundService } from '../utils/soundService';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -83,7 +83,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ onNavigate }) => {
                     <div className="relative w-32 h-32 md:w-40 md:h-40">
                         <img
                             src="/avatar.png"
-                            alt="Profile"
+                            alt="Richerd Gabriel - Richie Community Founder"
                             className="w-full h-full rounded-full object-cover border-2 border-white/10 relative z-10"
                         />
                         {/* Bulb Badge */}
@@ -101,14 +101,17 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ onNavigate }) => {
                 {/* Identity */}
                 <div className="text-center space-y-2 mb-8 relative z-10">
                     <h2 className="text-3xl font-display font-bold text-white leading-tight">
-                        Richerd Gabriel<br />Parker
+                        Richerd Gabriel
                     </h2>
                     <p className="text-neon font-mono text-xs tracking-[0.2em] uppercase font-bold">
-                        VIBE CODER
+                        VIBE CODER · JACK OF ALL TRADE
                     </p>
                     <p className="text-white/40 text-sm font-medium">
-                        Enthusiastic Learner & Idea Maker.
+                        Founder, Richie Community · Tiruppur, TN
                     </p>
+                    <div className="flex items-center justify-center gap-2 mt-1">
+                        <span className="text-xs px-2 py-0.5 bg-neon/10 text-neon rounded-full font-mono tracking-wide border border-neon/20">richieandrichie.com</span>
+                    </div>
                 </div>
 
                 {/* Navigation Buttons */}
@@ -132,6 +135,21 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ onNavigate }) => {
                                 <div className="flex items-center gap-3 relative z-10">
                                     <Sparkles className="w-5 h-5 text-white/70 group-hover:text-neon transition-colors" />
                                     <span className="font-display font-bold text-white">About Me</span>
+                                </div>
+                                <ChevronRight className="w-5 h-5 text-white/30 group-hover:text-white group-hover:translate-x-1 transition-all relative z-10" />
+                            </motion.button>
+
+                            <motion.button
+                                variants={itemVariants}
+                                onClick={() => handleNav('community')}
+                                className="w-full bg-[#1C1C1C] hover:bg-[#252525] p-4 rounded-2xl flex items-center justify-between group border border-transparent hover:border-white/5 relative overflow-hidden"
+                                whileHover={{ scale: 1.02, x: 2 }}
+                                whileTap={{ scale: 0.98 }}
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className="flex items-center gap-3 relative z-10">
+                                    <Users className="w-5 h-5 text-white/70 group-hover:text-yellow-400 transition-colors" />
+                                    <span className="font-display font-bold text-white">Richie Community</span>
                                 </div>
                                 <ChevronRight className="w-5 h-5 text-white/30 group-hover:text-white group-hover:translate-x-1 transition-all relative z-10" />
                             </motion.button>
