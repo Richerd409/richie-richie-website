@@ -3,1182 +3,782 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Richie&amp;Richie Agency | Enterprise Solutions</title>
-<meta name="description" content="Richie&Richie Agency — Full-service enterprise solutions from Tiruppur, Tamil Nadu. Strategy, manpower, export consulting, and data services.">
-<meta name="keywords" content="enterprise solutions, manpower consulting, export consulting, business strategy, Tiruppur, Tamil Nadu, lead generation, data services">
-<meta property="og:title" content="Richie&Richie Agency | Enterprise Solutions">
-<meta property="og:description" content="Full-service enterprise solutions from Tiruppur to the world. Strategy, operations, and execution — crafted with care.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.richieandrichie.com">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Richie&Richie Agency | Enterprise Solutions">
-<meta name="twitter:description" content="Full-service enterprise solutions from Tiruppur to the world.">
-<meta name="theme-color" content="#1a1511">
-<meta name="author" content="Richerd Gabriel Parker">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.richieandrichie.com">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231a1511'/><text x='16' y='22' font-size='16' font-family='Georgia' fill='%23c9a96e' text-anchor='middle' font-style='italic'>R</text></svg>">
-<script src="https://artifactcdn.diabrowser.engineering/ajax/libs/gsap/gsap.min.js"></script>
+<title>Richie&Richie Agency | Enterprise Solutions</title>
 <style>
 :root {
-  --deep: #1a1511;
-  --rich: #2c241d;
-  --gold: #c9a96e;
-  --gold-light: #ddc291;
-  --gold-dark: #a88b52;
-  --cream: #faf6f0;
-  --warm: #f3ece1;
-  --taupe: #8a7e72;
-  --ivory: #fffcf7;
-  --copper: #b87d4b;
+  --navy: #16213e;
+  --navy-deep: #111b30;
+  --accent: #c8553d;
+  --accent-hover: #b04a35;
+  --gold: #b8860b;
+  --cream: #f5f0e8;
+  --slate: #4a4a5a;
+  --light: #faf8f4;
+  --text: #2c2c3a;
+  --muted: #7a7a8a;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; }
 
 body {
   font-family: Georgia, 'Times New Roman', serif;
-  background: var(--cream);
-  color: var(--deep);
-  overflow-x: hidden;
+  color: var(--text);
+  background: var(--light);
   -webkit-font-smoothing: antialiased;
 }
 
-/* NAV */
+/* ===== NAV ===== */
 nav {
   position: fixed;
   top: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: 1.5rem 3rem;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 48px;
+  height: 72px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  transition: all 0.5s;
+  background: rgba(22,33,62,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-nav.scrolled {
-  background: rgba(250, 246, 240, 0.96);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 1px 0 rgba(201, 169, 110, 0.2);
-  padding: 1rem 3rem;
-}
-
-.logo {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 1.3rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--deep);
-  text-decoration: none;
-}
-
-.logo span { color: var(--gold); }
-
-.nav-links {
+.nav-logo {
   display: flex;
-  gap: 2.5rem;
-  list-style: none;
   align-items: center;
+  gap: 0;
+  text-decoration: none;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: var(--taupe);
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+.nav-logo .r-block {
+  width: 32px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+.nav-logo .r1 { background: var(--accent); }
+.nav-logo .r2 { background: rgba(255,255,255,0.1); }
+.nav-logo .sep { width: 2px; height: 36px; background: var(--gold); }
+.nav-logo .nav-name {
+  margin-left: 12px;
+  font-size: 14px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  position: relative;
+  color: white;
+  font-weight: 400;
+}
+
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   transition: color 0.3s;
 }
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--gold);
-  transition: width 0.4s;
+.nav-links a:hover { color: white; }
+.nav-links .nav-cta {
+  background: var(--accent);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background 0.3s;
 }
+.nav-links .nav-cta:hover { background: var(--accent-hover); }
 
-.nav-links a:hover { color: var(--gold); }
-.nav-links a:hover::after { width: 100%; }
-
-.nav-cta {
-  background: var(--gold) !important;
-  color: var(--deep) !important;
-  padding: 0.65rem 1.8rem !important;
-  border-radius: 0 !important;
-  letter-spacing: 0.12em !important;
-  transition: background 0.3s, transform 0.2s !important;
-}
-.nav-cta::after { display: none !important; }
-.nav-cta:hover { background: var(--gold-dark) !important; color: white !important; transform: translateY(-1px); }
-
-.mobile-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-.mobile-toggle span {
-  width: 24px;
-  height: 1.5px;
-  background: var(--deep);
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; }
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: white;
+  margin: 5px 0;
   transition: 0.3s;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero {
   min-height: 100vh;
+  background: var(--navy);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 80px 80px;
   position: relative;
   overflow: hidden;
-  padding: 0 3rem;
 }
 
-.hero-bg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background: var(--deep);
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
-  z-index: 0;
-}
-
-.hero-pattern {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0.04;
-  background-image:
-    repeating-linear-gradient(45deg, transparent, transparent 29px, var(--gold) 29px, var(--gold) 30px);
-}
-
-.hero-accent-line {
-  position: absolute;
-  left: 50%;
-  top: 15%;
-  bottom: 15%;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-  z-index: 2;
-  opacity: 0.4;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 3;
-  max-width: 560px;
-}
-
-.hero-label {
-  display: inline-block;
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 2rem;
-  position: relative;
-  padding-left: 3rem;
-}
-
-.hero-label::before {
+.hero::before {
   content: '';
   position: absolute;
-  left: 0;
-  top: 50%;
-  width: 2rem;
-  height: 1px;
+  top: -50%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,85,61,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  width: fit-content;
+}
+
+.hero-badge span {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.hero-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
   background: var(--gold);
 }
 
 .hero h1 {
-  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-size: clamp(42px, 5.5vw, 72px);
   font-weight: 400;
+  color: white;
   line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
-  color: var(--deep);
-  font-style: italic;
+  max-width: 800px;
+  margin-bottom: 28px;
 }
 
 .hero h1 strong {
   font-weight: 700;
-  font-style: normal;
-  color: var(--gold-dark);
+  color: var(--accent);
 }
 
 .hero p {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--taupe);
-  margin-bottom: 2.5rem;
-  max-width: 440px;
+  font-size: 18px;
+  color: rgba(255,255,255,0.55);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 48px;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 1rem 2.4rem;
-  background: var(--gold);
-  color: var(--deep);
+  gap: 8px;
+  padding: 16px 32px;
+  background: var(--accent);
+  color: white;
   text-decoration: none;
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: background 0.3s, transform 0.2s;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  transition: background 0.3s;
 }
+.btn-primary:hover { background: var(--accent-hover); }
 
-.btn-primary:hover { background: var(--gold-dark); color: white; transform: translateY(-2px); }
-
-.btn-outline {
+.btn-secondary {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 1rem 2.4rem;
-  background: transparent;
-  color: var(--deep);
+  gap: 8px;
+  padding: 16px 32px;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7);
   text-decoration: none;
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border: 1.5px solid var(--deep);
+  font-family: Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-radius: 4px;
   transition: all 0.3s;
 }
-
-.btn-outline:hover { background: var(--deep); color: var(--cream); }
+.btn-secondary:hover { border-color: rgba(255,255,255,0.4); color: white; }
 
 .hero-stats {
-  position: absolute;
-  z-index: 4;
-  right: 8%;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  gap: 48px;
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
-.stat-item { text-align: center; color: var(--cream); }
-
-.stat-num {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 3rem;
-  font-weight: 200;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--gold-light);
+.stat .num {
+  font-size: 28px;
+  color: white;
+  font-weight: 700;
 }
 
-.stat-label {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+.stat .label {
+  font-size: 11px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  opacity: 0.5;
-  margin-top: 0.5rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 4px;
 }
 
-/* DIVIDER */
-.gold-divider {
-  padding: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold), transparent);
-  opacity: 0.3;
-}
-
-/* MARQUEE */
-.marquee-section {
-  background: var(--deep);
-  padding: 1.4rem 0;
+/* ===== MARQUEE ===== */
+.marquee-wrap {
+  background: var(--navy-deep);
+  padding: 20px 0;
   overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.marquee {
+  display: flex;
+  gap: 48px;
+  animation: scroll 25s linear infinite;
+  width: max-content;
+}
+
+.marquee span {
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
   white-space: nowrap;
 }
 
-.marquee-track {
-  display: flex;
-  gap: 3rem;
-  animation: marquee 25s linear infinite;
-}
+.marquee .sep { color: var(--gold); }
 
-.marquee-item {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  opacity: 0.4;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.marquee-item::after {
-  content: '\2726';
-  font-size: 0.5rem;
-  color: var(--gold);
-  opacity: 0.6;
-}
-
-@keyframes marquee {
+@keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* SECTIONS */
-section { padding: 7rem 3rem; }
-
-.section-label {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+/* ===== SECTIONS ===== */
+section {
+  padding: 100px 80px;
 }
 
-.section-label::before {
-  content: '';
-  width: 2rem;
-  height: 1px;
-  background: var(--gold);
+.section-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
 }
 
 .section-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-size: clamp(28px, 3.5vw, 42px);
   font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  font-style: italic;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 20px;
 }
 
-/* ABOUT */
-.about { background: var(--ivory); }
+.section-title strong { font-weight: 700; }
+
+.section-desc {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 56px;
+}
+
+/* ===== ABOUT ===== */
+#about { background: var(--cream); }
 
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  align-items: center;
+  gap: 64px;
+  align-items: start;
 }
 
-.about-visual {
-  position: relative;
-  height: 450px;
+.about-text p {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
 }
 
-.about-block { position: absolute; }
-
-.about-block-1 {
-  width: 78%;
-  height: 72%;
-  top: 0;
-  left: 0;
-  background: var(--deep);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(201, 169, 110, 0.15);
-}
-
-.about-block-1 .inner-text {
-  color: var(--gold);
-  font-size: 5rem;
-  font-weight: 400;
-  opacity: 0.07;
-  letter-spacing: 0.1em;
-  font-style: italic;
-}
-
-.about-block-2 {
-  width: 50%;
-  height: 45%;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.about-block-2 .year {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 2.5rem;
-  font-weight: 200;
-  color: var(--deep);
-  line-height: 1;
-}
-
-.about-block-2 .year-label {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--deep);
-  opacity: 0.7;
-  margin-top: 0.5rem;
-}
-
-.about-block-3 {
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  width: 40px;
-  height: 40px;
-  border-top: 1px solid var(--gold);
-  border-left: 1px solid var(--gold);
-  opacity: 0.4;
-}
-
-.about p {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--taupe);
-  margin-bottom: 1.5rem;
-}
-
-.about-features {
+.about-badges {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 16px;
+  margin-top: 32px;
 }
 
-.about-feature {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--deep);
+.about-badge {
+  padding: 16px 20px;
+  background: white;
+  border-radius: 6px;
+  border-left: 3px solid var(--gold);
 }
 
-.about-feature .dot {
-  width: 6px;
-  height: 6px;
-  background: var(--gold);
-  border-radius: 50%;
-  flex-shrink: 0;
+.about-badge span {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--navy);
+  font-weight: 700;
 }
 
-/* SERVICES */
-.services { background: var(--cream); }
-
-.services-header {
-  text-align: center;
-  max-width: 550px;
-  margin: 0 auto 4rem;
-}
-
-.services-header .section-label { justify-content: center; }
-.services-header .section-label::before { display: none; }
+/* ===== SERVICES ===== */
+#services { background: var(--light); }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  gap: 24px;
 }
 
 .service-card {
-  background: var(--ivory);
-  padding: 2.5rem 2rem;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.4s, box-shadow 0.4s;
-  border: 1px solid rgba(201, 169, 110, 0.12);
+  padding: 36px 32px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .service-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(26, 21, 17, 0.06);
-  border-color: rgba(201, 169, 110, 0.3);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
 }
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(to right, transparent, var(--gold), transparent);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.service-card:hover::before { opacity: 1; }
 
 .service-icon {
-  width: 52px;
-  height: 52px;
-  border: 1px solid var(--gold);
+  width: 48px;
+  height: 48px;
+  background: var(--navy);
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
-  font-size: 1.3rem;
-  color: var(--gold);
-  transition: all 0.3s;
-}
-
-.service-card:hover .service-icon {
-  background: var(--gold);
-  color: var(--deep);
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: white;
 }
 
 .service-card h3 {
-  font-family: Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 400;
-  font-style: italic;
-  margin-bottom: 0.8rem;
-  color: var(--deep);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
 }
 
 .service-card p {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.85rem;
-  line-height: 1.75;
-  color: var(--taupe);
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
 }
 
-/* PROCESS */
-.process {
-  background: var(--deep);
-  color: var(--cream);
-}
+/* ===== PROCESS ===== */
+#process { background: var(--navy); }
+#process .section-label { color: var(--gold); }
+#process .section-title { color: white; }
+#process .section-desc { color: rgba(255,255,255,0.45); }
 
-.process .section-title { color: var(--cream); }
-
-.process-header {
-  max-width: 550px;
-  margin-bottom: 4rem;
-}
-
-.process-header p {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  color: rgba(250, 246, 240, 0.45);
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-.process-steps {
+.process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  max-width: 1100px;
-  margin: 0 auto;
+  gap: 32px;
 }
 
 .process-step {
-  padding: 2.5rem 2rem;
-  border-right: 1px solid rgba(201, 169, 110, 0.1);
+  padding: 32px 28px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  position: relative;
 }
-.process-step:last-child { border-right: none; }
 
 .step-num {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 3.5rem;
-  font-weight: 200;
-  color: var(--gold);
-  opacity: 0.2;
-  line-height: 1;
-  margin-bottom: 1.5rem;
+  font-size: 42px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.06);
+  margin-bottom: 16px;
 }
 
 .process-step h3 {
-  font-family: Georgia, serif;
-  font-size: 1.1rem;
-  font-weight: 400;
-  font-style: italic;
-  margin-bottom: 0.8rem;
-  color: var(--gold-light);
+  font-size: 18px;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .process-step p {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.82rem;
-  line-height: 1.8;
-  color: rgba(250, 246, 240, 0.4);
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
 }
 
-/* FOUNDER */
-.founder { background: var(--ivory); }
+.process-step .step-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 0 0 4px 0;
+}
 
-.founder-container {
+/* ===== FOUNDER ===== */
+#founder { background: var(--cream); }
+
+.founder-card {
+  display: flex;
+  gap: 56px;
+  align-items: start;
   max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.founder-visual {
-  position: relative;
 }
 
 .founder-avatar {
-  width: 280px;
-  height: 340px;
-  background: var(--deep);
+  width: 100px;
+  height: 100px;
+  background: var(--navy);
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.founder-avatar .initials {
-  font-size: 6rem;
-  font-weight: 400;
-  font-style: italic;
-  color: var(--gold);
-  opacity: 0.12;
-}
-
-.founder-avatar::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, var(--gold), var(--gold-dark));
-}
-
-.founder-frame {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  border: 1px solid var(--gold);
-  opacity: 0.2;
-  pointer-events: none;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
 }
 
 .founder-info h3 {
-  font-size: 2rem;
-  font-weight: 400;
-  font-style: italic;
-  margin-bottom: 0.3rem;
-  color: var(--deep);
+  font-size: 24px;
+  color: var(--navy);
+  margin-bottom: 4px;
 }
 
 .founder-info .role {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: 12px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 2rem;
-  display: block;
+  color: var(--accent);
+  margin-bottom: 20px;
 }
 
 .founder-info p {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.85;
-  color: var(--taupe);
-  margin-bottom: 1rem;
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
 }
 
-.founder-info .quote {
-  margin-top: 2rem;
-  padding-left: 1.5rem;
-  border-left: 2px solid var(--gold);
+.founder-quote {
   font-style: italic;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--deep);
+  color: var(--navy);
+  border-left: 3px solid var(--gold);
+  padding-left: 20px;
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
-/* CONTACT */
-.contact { background: var(--cream); }
+/* ===== CONTACT ===== */
+#contact { background: var(--light); }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  max-width: 1050px;
-  margin: 0 auto;
+  gap: 64px;
 }
 
-.contact-info p {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--taupe);
-  margin-bottom: 2.5rem;
-}
-
-.contact-details {
+.contact-cards {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 20px;
 }
 
-.contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+.contact-card {
+  padding: 24px 28px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.04);
 }
 
-.contact-item .icon {
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  color: var(--gold);
-  flex-shrink: 0;
-}
-
-.contact-item .text h4 {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+.contact-card .cc-label {
+  font-size: 10px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.3rem;
+  color: var(--muted);
+  margin-bottom: 6px;
 }
 
-.contact-item .text p {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.92rem;
-  color: var(--deep);
-  margin: 0;
-  line-height: 1.5;
+.contact-card .cc-value {
+  font-size: 16px;
+  color: var(--navy);
+  font-weight: 700;
 }
+
+.contact-card a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.contact-card a:hover { text-decoration: underline; }
 
 .contact-form {
-  background: var(--ivory);
-  padding: 3rem;
-  border: 1px solid rgba(201, 169, 110, 0.15);
-}
-
-.form-group { margin-bottom: 1.5rem; }
-
-.form-group label {
-  display: block;
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--taupe);
-  margin-bottom: 0.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.9rem 1rem;
-  border: 1px solid rgba(201, 169, 110, 0.25);
-  font-size: 0.95rem;
-  font-family: Georgia, serif;
-  background: var(--cream);
-  color: var(--deep);
-  transition: border-color 0.3s;
-  outline: none;
-}
-
-.form-group input:focus,
-.form-group textarea:focus { border-color: var(--gold); }
-
-.form-group textarea { resize: vertical; min-height: 120px; }
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.btn-submit {
-  width: 100%;
-  padding: 1rem;
-  background: var(--gold);
-  color: var(--deep);
-  border: none;
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.btn-submit:hover { background: var(--gold-dark); color: white; transform: translateY(-1px); }
-
-/* FOOTER */
-footer {
-  background: var(--deep);
-  color: var(--cream);
-  padding: 4rem 3rem 2rem;
-}
-
-.footer-top {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  max-width: 1100px;
-  margin: 0 auto 3rem;
-}
-
-.footer-brand .logo {
-  color: var(--cream);
-  font-size: 1.4rem;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-
-.footer-brand p {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.85rem;
-  line-height: 1.75;
-  color: rgba(250, 246, 240, 0.4);
-  max-width: 280px;
-}
-
-.footer-col h4 {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.2rem;
-}
-
-.footer-col ul {
-  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 16px;
 }
 
-.footer-col a {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  color: rgba(250, 246, 240, 0.45);
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: color 0.3s;
+.contact-form input,
+.contact-form textarea {
+  padding: 14px 18px;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 6px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.3s;
 }
 
-.footer-col a:hover { color: var(--gold-light); }
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+}
 
-.footer-bottom {
-  border-top: 1px solid rgba(201, 169, 110, 0.1);
-  padding-top: 2rem;
+.contact-form textarea {
+  height: 140px;
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 16px 32px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s;
+  align-self: flex-start;
+}
+
+.contact-form button:hover { background: var(--accent-hover); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--navy-deep);
+  padding: 48px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.75rem;
-  color: rgba(250, 246, 240, 0.3);
+  border-top: 1px solid rgba(255,255,255,0.04);
 }
 
-.footer-bottom .gstin {
-  font-family: 'Courier New', monospace;
-  letter-spacing: 0.06em;
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0;
 }
 
-/* REVEAL */
-.reveal {
-  opacity: 0;
-  transform: translateY(35px);
+.footer-logo .r-block {
+  width: 24px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
 }
 
-/* MOBILE */
+.footer-logo .r1 { background: var(--accent); }
+.footer-logo .r2 { background: rgba(255,255,255,0.08); }
+.footer-logo .sep { width: 1.5px; height: 28px; background: var(--gold); }
+
+.footer-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 1px;
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .process-steps { grid-template-columns: repeat(2, 1fr); }
-  .process-step:nth-child(2) { border-right: none; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
-  .hero-stats { display: none; }
-  .hero-bg { width: 42%; clip-path: polygon(30% 0, 100% 0, 100% 100%, 8% 100%); }
-  .hero-accent-line { display: none; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-  nav { padding: 1rem 1.5rem; }
+  nav { padding: 0 24px; }
   .nav-links { display: none; }
-  .mobile-toggle { display: flex; }
-
   .nav-links.open {
     display: flex;
     flex-direction: column;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: var(--cream);
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    z-index: 999;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    padding: 24px;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
-  .nav-links.open a { font-size: 1.1rem; }
+  .menu-toggle { display: block; }
 
-  section { padding: 4rem 1.5rem; }
-  .hero { padding: 0 1.5rem; }
-  .hero-bg, .hero-pattern, .hero-accent-line { display: none; }
-  .hero h1 { font-size: 2.4rem; }
+  .hero { padding: 120px 24px 60px; }
+  section { padding: 64px 24px; }
+  footer { padding: 32px 24px; flex-direction: column; gap: 16px; }
 
-  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .about-visual { height: 280px; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
   .services-grid { grid-template-columns: 1fr; }
-  .process-steps { grid-template-columns: 1fr; }
-  .process-step { border-right: none; border-bottom: 1px solid rgba(201, 169, 110, 0.08); }
-  .founder-container { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
-  .founder-avatar { width: 200px; height: 250px; margin: 0 auto; }
-  .founder-frame { top: -8px; left: -8px; right: -8px; bottom: -8px; }
-  .founder-info .quote { text-align: left; }
-  .section-label { justify-content: center; }
+  .process-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
-  .contact-form { padding: 2rem; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+  .founder-card { flex-direction: column; gap: 24px; }
 }
 
-/* PRINT */
 @media print {
-  nav, .marquee-section, .mobile-toggle, .gold-divider { display: none; }
-  section { padding: 2rem 1rem; page-break-inside: avoid; }
-  .hero { min-height: auto; padding: 2rem 1rem; }
-  .hero-bg, .hero-pattern, .hero-accent-line { display: none; }
-  .hero-stats { display: none; }
-  .reveal { opacity: 1 !important; transform: none !important; }
-  body { font-size: 11pt; }
+  nav { position: static; }
+  .marquee-wrap { display: none; }
+  section { padding: 40px 20px; }
 }
-
-body::after {
-  content: '';
-  display: block;
-  height: 60px;
-}
-
-/* ACCESSIBILITY */
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: 1rem;
-  background: var(--gold);
-  color: var(--deep);
-  padding: 0.8rem 1.5rem;
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-decoration: none;
-  z-index: 9999;
-  transition: top 0.2s;
-}
-
-.skip-link:focus {
-  top: 1rem;
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-
-.nav-links a:focus-visible::after { width: 100%; }
-.service-card:focus-within { border-color: rgba(201, 169, 110, 0.4); }
 </style>
 </head>
 <body>
 
-<a href="#main" class="skip-link">Skip to main content</a>
-
 <!-- NAV -->
-<nav id="navbar" role="navigation" aria-label="Main navigation">
-  <a href="#" class="logo">RICHIE<span>&amp;</span>RICHIE</a>
-  <ul class="nav-links" id="navLinks" role="list">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#founder">Founder</a></li>
-    <li><a href="#contact" class="nav-cta">Inquire</a></li>
-  </ul>
-  <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="r-block r1">R</div>
+    <div class="sep"></div>
+    <div class="r-block r2">R</div>
+    <span class="nav-name">Agency</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#founder">Founder</a>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </div>
+  <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<main id="main">
-
 <!-- HERO -->
-<section class="hero" id="hero" aria-label="Introduction">
-  <div class="hero-bg"></div>
-  <div class="hero-pattern"></div>
-  <div class="hero-accent-line"></div>
-  <div class="hero-content">
-    <div class="hero-label">Enterprise Solutions</div>
-    <h1>Where <strong>Precision</strong> Meets Ambition</h1>
-    <p>Richie&amp;Richie Agency delivers refined enterprise solutions from Tiruppur to the world. Strategy, operations, and execution &mdash; crafted with care.</p>
-    <div class="hero-buttons">
-      <a href="#services" class="btn-primary">Explore Services &rarr;</a>
-      <a href="#contact" class="btn-outline">Start a Conversation</a>
-    </div>
+<section class="hero">
+  <div class="hero-badge">
+    <div class="dot"></div>
+    <span>Enterprise Solutions</span>
+  </div>
+  <h1>Where <strong>Precision</strong> Meets Ambition</h1>
+  <p>Richie&amp;Richie Agency delivers refined enterprise solutions from Tiruppur to the world. Strategy, operations, and execution — crafted with care.</p>
+  <div class="hero-buttons">
+    <a href="#services" class="btn-primary">Explore Services &rarr;</a>
+    <a href="#contact" class="btn-secondary">Start a Conversation</a>
   </div>
   <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">3-4</div>
-      <div class="stat-label">Clients Served</div>
+    <div class="stat">
+      <div class="num">3-4</div>
+      <div class="label">Clients Served</div>
     </div>
-    <div class="stat-item">
-      <div class="stat-num">2026</div>
-      <div class="stat-label">Founded</div>
+    <div class="stat">
+      <div class="num">2026</div>
+      <div class="label">Founded</div>
     </div>
-    <div class="stat-item">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Committed</div>
+    <div class="stat">
+      <div class="num">100%</div>
+      <div class="label">Committed</div>
     </div>
   </div>
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-section" role="marquee" aria-label="Services offered">
-  <div class="marquee-track">
-    <span class="marquee-item">Manpower Solutions</span>
-    <span class="marquee-item">Export Consulting</span>
-    <span class="marquee-item">Business Strategy</span>
-    <span class="marquee-item">Operations Management</span>
-    <span class="marquee-item">Lead Generation</span>
-    <span class="marquee-item">Data Services</span>
-    <span class="marquee-item">Logistics Support</span>
-    <span class="marquee-item">International Trade</span>
-    <span class="marquee-item">Manpower Solutions</span>
-    <span class="marquee-item">Export Consulting</span>
-    <span class="marquee-item">Business Strategy</span>
-    <span class="marquee-item">Operations Management</span>
-    <span class="marquee-item">Lead Generation</span>
-    <span class="marquee-item">Data Services</span>
-    <span class="marquee-item">Logistics Support</span>
-    <span class="marquee-item">International Trade</span>
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>Manpower Solutions</span><span class="sep">&bull;</span>
+    <span>Export Consulting</span><span class="sep">&bull;</span>
+    <span>Business Strategy</span><span class="sep">&bull;</span>
+    <span>Operations Management</span><span class="sep">&bull;</span>
+    <span>Lead Generation</span><span class="sep">&bull;</span>
+    <span>Data Services</span><span class="sep">&bull;</span>
+    <span>Logistics Support</span><span class="sep">&bull;</span>
+    <span>International Trade</span><span class="sep">&bull;</span>
+    <span>Manpower Solutions</span><span class="sep">&bull;</span>
+    <span>Export Consulting</span><span class="sep">&bull;</span>
+    <span>Business Strategy</span><span class="sep">&bull;</span>
+    <span>Operations Management</span><span class="sep">&bull;</span>
+    <span>Lead Generation</span><span class="sep">&bull;</span>
+    <span>Data Services</span><span class="sep">&bull;</span>
+    <span>Logistics Support</span><span class="sep">&bull;</span>
+    <span>International Trade</span><span class="sep">&bull;</span>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section class="about" id="about" aria-label="About us">
+<section id="about">
   <div class="about-grid">
-    <div class="about-visual reveal">
-      <div class="about-block-3"></div>
-      <div class="about-block about-block-1">
-        <div class="inner-text">R&amp;R</div>
-      </div>
-      <div class="about-block about-block-2">
-        <div class="year">2026</div>
-        <div class="year-label">Established</div>
-      </div>
-    </div>
-    <div class="about-text reveal">
+    <div>
       <div class="section-label">Who We Are</div>
-      <h2 class="section-title">Thoughtful Solutions, Lasting Results</h2>
+      <div class="section-title">Thoughtful Solutions, <strong>Lasting Results</strong></div>
+    </div>
+    <div class="about-text">
       <p>Richie&amp;Richie Agency is a Tiruppur-based enterprise solutions firm built on the belief that great businesses deserve great partners. We bring strategic clarity and operational depth to every engagement.</p>
       <p>From international lead sourcing to supply chain management, our approach combines the attentiveness of a boutique firm with the capability to deliver at scale.</p>
-      <div class="about-features">
-        <div class="about-feature"><span class="dot"></span> GST Registered</div>
-        <div class="about-feature"><span class="dot"></span> International Reach</div>
-        <div class="about-feature"><span class="dot"></span> Data-Driven</div>
-        <div class="about-feature"><span class="dot"></span> Founder-Led</div>
+      <div class="about-badges">
+        <div class="about-badge"><span>GST Registered</span></div>
+        <div class="about-badge"><span>International Reach</span></div>
+        <div class="about-badge"><span>Data-Driven</span></div>
+        <div class="about-badge"><span>Founder-Led</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="gold-divider"></div>
-
 <!-- SERVICES -->
-<section class="services" id="services" aria-label="Services">
-  <div class="services-header reveal">
-    <div class="section-label">What We Do</div>
-    <h2 class="section-title">Full-Service Enterprise Solutions</h2>
-    <p style="color: var(--taupe); font-family: 'Segoe UI', sans-serif; font-size: 1rem; line-height: 1.8;">Six refined capabilities, one cohesive approach. Each service is designed to elevate your business.</p>
-  </div>
+<section id="services">
+  <div class="section-label">What We Do</div>
+  <div class="section-title">Full-Service <strong>Enterprise Solutions</strong></div>
+  <div class="section-desc">Six refined capabilities, one cohesive approach. Each service is designed to elevate your business.</div>
+
   <div class="services-grid">
-    <div class="service-card reveal">
-      <div class="service-icon">&#9879;</div>
+    <div class="service-card">
+      <div class="service-icon">&#9878;</div>
       <h3>Business Strategy</h3>
       <p>Market analysis, competitive positioning, and growth roadmaps tailored to your industry and ambitions.</p>
     </div>
-    <div class="service-card reveal">
-      <div class="service-icon">&#9783;</div>
+    <div class="service-card">
+      <div class="service-icon">&#9639;</div>
       <h3>Manpower Solutions</h3>
       <p>End-to-end staffing and recruitment. We find, vet, and place the right talent for your operations.</p>
     </div>
-    <div class="service-card reveal">
+    <div class="service-card">
       <div class="service-icon">&#9992;</div>
       <h3>Export &amp; Trade</h3>
       <p>International market entry support, compliance guidance, logistics coordination, and buyer-seller matching.</p>
     </div>
-    <div class="service-card reveal">
+    <div class="service-card">
       <div class="service-icon">&#9881;</div>
       <h3>Operations Management</h3>
       <p>Process refinement, supply chain management, and operational improvements that deliver measurable results.</p>
     </div>
-    <div class="service-card reveal">
+    <div class="service-card">
       <div class="service-icon">&#9733;</div>
       <h3>Lead Generation</h3>
       <p>Targeted prospect identification across global markets, from Scandinavia to Southeast Asia and beyond.</p>
     </div>
-    <div class="service-card reveal">
+    <div class="service-card">
       <div class="service-icon">&#9635;</div>
       <h3>Data Services</h3>
       <p>Precise data collection, processing, and analytics operations. AI-ready pipelines built for accuracy.</p>
@@ -1187,29 +787,32 @@ textarea:focus-visible {
 </section>
 
 <!-- PROCESS -->
-<section class="process" id="process" aria-label="Our process">
-  <div class="process-header reveal">
-    <div class="section-label">How We Work</div>
-    <h2 class="section-title">From Vision to Delivery, Seamlessly</h2>
-    <p>No wasted steps. No unnecessary complexity. A refined process that keeps you informed and in control at every stage.</p>
-  </div>
-  <div class="process-steps">
-    <div class="process-step reveal">
+<section id="process">
+  <div class="section-label">How We Work</div>
+  <div class="section-title">From Vision to Delivery, <strong>Seamlessly</strong></div>
+  <div class="section-desc">No wasted steps. No unnecessary complexity. A refined process that keeps you informed and in control at every stage.</div>
+
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-accent"></div>
       <div class="step-num">01</div>
       <h3>Discovery</h3>
       <p>We immerse ourselves in your business, market, and aspirations. Deep understanding before action.</p>
     </div>
-    <div class="process-step reveal">
+    <div class="process-step">
+      <div class="step-accent"></div>
       <div class="step-num">02</div>
       <h3>Strategy</h3>
       <p>A clear, considered plan with timelines, deliverables, and accountability built in from day one.</p>
     </div>
-    <div class="process-step reveal">
+    <div class="process-step">
+      <div class="step-accent"></div>
       <div class="step-num">03</div>
       <h3>Execution</h3>
       <p>Meticulous implementation with regular updates, transparent progress, and attention to every detail.</p>
     </div>
-    <div class="process-step reveal">
+    <div class="process-step">
+      <div class="step-accent"></div>
       <div class="step-num">04</div>
       <h3>Delivery</h3>
       <p>Polished handoffs, documented outcomes, and continued support. Our commitment extends beyond launch.</p>
@@ -1218,182 +821,61 @@ textarea:focus-visible {
 </section>
 
 <!-- FOUNDER -->
-<section class="founder" id="founder" aria-label="Founder">
-  <div class="founder-container">
-    <div class="founder-visual reveal">
-      <div class="founder-avatar">
-        <div class="initials">RP</div>
-      </div>
-      <div class="founder-frame"></div>
-    </div>
-    <div class="founder-info reveal">
-      <div class="section-label">The Founder</div>
+<section id="founder">
+  <div class="section-label">The Founder</div>
+  <div class="section-title">Richerd Gabriel <strong>Parker</strong></div>
+  <div class="founder-card">
+    <div class="founder-avatar">RP</div>
+    <div class="founder-info">
       <h3>Richerd Gabriel Parker</h3>
-      <span class="role">Founder &amp; Principal</span>
+      <div class="role">Founder &amp; Principal</div>
       <p>Richerd founded Richie&amp;Richie Agency with a clear conviction: that businesses in Tiruppur and beyond deserve access to enterprise-grade solutions without enterprise-grade overhead.</p>
-      <p>With hands-on experience across operations, international trade, and data services, Richerd leads every engagement personally &mdash; ensuring the same care goes into strategy as into execution.</p>
-      <div class="quote">&ldquo;Every business has the potential to compete globally. My job is to remove the barriers between where you are and where you should be.&rdquo;</div>
+      <p>With hands-on experience across operations, international trade, and data services, Richerd leads every engagement personally — ensuring the same care goes into strategy as into execution.</p>
+      <div class="founder-quote">"Every business has the potential to compete globally. My job is to remove the barriers between where you are and where you should be."</div>
     </div>
   </div>
 </section>
 
-<div class="gold-divider"></div>
-
 <!-- CONTACT -->
-<section class="contact" id="contact" aria-label="Contact us">
+<section id="contact">
+  <div class="section-label">Get in Touch</div>
+  <div class="section-title">Let's Start a <strong>Conversation</strong></div>
+  <div class="section-desc">Whether you're exploring new markets, refining operations, or seeking the right talent — reach out.</div>
+
   <div class="contact-grid">
-    <div class="contact-info reveal">
-      <div class="section-label">Get in Touch</div>
-      <h2 class="section-title">Let's Start a Conversation</h2>
-      <p>Whether you're exploring new markets, refining operations, or seeking the right talent &mdash; reach out. Every great partnership begins with a conversation.</p>
-      <div class="contact-details">
-        <div class="contact-item">
-          <div class="icon">&#9906;</div>
-          <div class="text">
-            <h4>Location</h4>
-            <p>Tiruppur, Tamil Nadu, India</p>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="icon">&#9742;</div>
-          <div class="text">
-            <h4>WhatsApp</h4>
-            <p><a href="https://wa.me/919944958020" style="color: var(--deep); text-decoration: none; border-bottom: 1px solid var(--gold);">+91 99449 58020</a></p>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="icon">&#9635;</div>
-          <div class="text">
-            <h4>GST Registration</h4>
-            <p style="font-family: 'Courier New', monospace; letter-spacing: 0.04em; font-size: 0.88rem;">33FOPPR0109H1ZW</p>
-          </div>
-        </div>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="cc-label">Location</div>
+        <div class="cc-value">Tiruppur, Tamil Nadu, India</div>
+      </div>
+      <div class="contact-card">
+        <div class="cc-label">WhatsApp</div>
+        <div class="cc-value"><a href="https://wa.me/919944958020">+91 99449 58020</a></div>
+      </div>
+      <div class="contact-card">
+        <div class="cc-label">GST Registration</div>
+        <div class="cc-value">33FOPPR0109H1ZW</div>
       </div>
     </div>
-    <form class="contact-form reveal" aria-label="Contact form" id="contactForm">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="Your full name" required aria-required="true">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="you@company.com" required aria-required="true">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" placeholder="How can we help?">
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" placeholder="Tell us about your project..." required aria-required="true"></textarea>
-      </div>
-      <button type="submit" class="btn-submit">Send Message &rarr;</button>
-      <p style="text-align: center; margin-top: 1rem; font-family: 'Segoe UI', sans-serif; font-size: 0.78rem; color: var(--taupe);">Or reach us directly on <a href="https://wa.me/919944958020" style="color: var(--gold); text-decoration: none; font-weight: 600;" aria-label="Chat on WhatsApp">WhatsApp</a></p>
+    <form class="contact-form" onsubmit="event.preventDefault();">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Subject">
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Send Message &rarr;</button>
     </form>
   </div>
 </section>
 
 <!-- FOOTER -->
-</main>
-<footer role="contentinfo">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a href="#" class="logo">RICHIE<span>&amp;</span>RICHIE</a>
-      <p>Refined enterprise solutions from Tiruppur to the world. Strategy, operations, and execution &mdash; crafted with care.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#founder">Founder</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#services">Strategy</a></li>
-        <li><a href="#services">Manpower</a></li>
-        <li><a href="#services">Export & Trade</a></li>
-        <li><a href="#services">Data Services</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Connect</h4>
-      <ul>
-        <li><a href="https://wa.me/919944958020">WhatsApp</a></li>
-      </ul>
-    </div>
+<footer>
+  <div class="footer-logo">
+    <div class="r-block r1">R</div>
+    <div class="sep"></div>
+    <div class="r-block r2">R</div>
   </div>
-  <div class="footer-bottom">
-    <span>&copy; 2026 Richie&amp;Richie Agency. All rights reserved.</span>
-    <span class="gstin">GSTIN: 33FOPPR0109H1ZW</span>
-  </div>
+  <div class="footer-text">&copy; 2026 Richie&amp;Richie Agency &middot; Tiruppur, India</div>
 </footer>
-
-<script>
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-const toggle = document.getElementById('mobileToggle');
-const navLinks = document.getElementById('navLinks');
-toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
-
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const delay = Array.from(entry.target.parentElement.children)
-        .filter(c => c.classList.contains('reveal'))
-        .indexOf(entry.target) * 0.15;
-      gsap.to(entry.target, {
-        opacity: 1, y: 0, duration: 0.9, delay: delay, ease: 'power2.out'
-      });
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-reveals.forEach(el => observer.observe(el));
-
-gsap.from('.hero-label', { opacity: 0, y: 20, duration: 0.7, delay: 0.3, ease: 'power2.out' });
-gsap.from('.hero h1', { opacity: 0, y: 30, duration: 0.9, delay: 0.5, ease: 'power2.out' });
-gsap.from('.hero p', { opacity: 0, y: 20, duration: 0.7, delay: 0.7, ease: 'power2.out' });
-gsap.from('.hero-buttons', { opacity: 0, y: 20, duration: 0.7, delay: 0.9, ease: 'power2.out' });
-gsap.from('.hero-stats .stat-item', { opacity: 0, x: 20, duration: 0.7, stagger: 0.18, delay: 1.1, ease: 'power2.out' });
-gsap.from('.hero-bg', { clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)', duration: 1.4, delay: 0.1, ease: 'power4.inOut' });
-gsap.from('.hero-accent-line', { opacity: 0, scaleY: 0, duration: 1, delay: 1.2, ease: 'power2.out' });
-
-// Contact form — mailto
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var name = this.querySelector('#name').value;
-  var email = this.querySelector('#email').value;
-  var subject = this.querySelector('#subject').value;
-  var message = this.querySelector('#message').value;
-  var mailBody = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
-  var mailto = 'mailto:gabrielricherd7@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(mailBody);
-  window.location.href = mailto;
-  var btn = this.querySelector('.btn-submit');
-  btn.textContent = 'Opening Mail App...';
-  setTimeout(function() { btn.textContent = 'Send Message'; }, 3000);
-});
-</script>
 
 </body>
 </html>
