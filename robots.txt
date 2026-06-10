@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://richie-richie-website.vercel.app/sitemap.xml
+Sitemap: https://www.richieandrichie.com/sitemap.xml
