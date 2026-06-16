@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8731"],
+      "port": 8731
+    },
+    {
+      "name": "gst-invoice",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "/Users/richerd/gst-invoice-pro", "run", "dev", "--", "--port", "8732"],
+      "port": 8732
+    },
+    {
+      "name": "community",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "/Users/richerd/community", "run", "dev", "--", "--port", "8733"],
+      "port": 8733
+    }
+  ]
+}
